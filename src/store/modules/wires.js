@@ -5,7 +5,8 @@ export default {
         variantsLV: [],
         variantsHV: [],
         goodVariants: [],
-        lowStorVariants:[]
+        lowStorVariants:[],
+        files:[],
     },
     mutations: {
         SET_JSONDATA(state, payload){
@@ -21,6 +22,9 @@ export default {
         SET_WIRES(state, payload){
           state.wires = payload
         },
+        SET_FILES(state, payload){
+          state.files = payload
+        },
         SET_VARIANTSHV(state, payload){
           state.variantsHV = payload
         },
@@ -29,6 +33,7 @@ export default {
         },
         NULL_WIRES(state){
           state.wires = [];
+          //state.files = [];
         }
       },
       getters:{
@@ -38,6 +43,7 @@ export default {
         getVariantsHV: (state) => state.variantsHV,
         getGoodVariants: (state) => state.goodVariants,
         getLowStorVariants: (state) => state.lowStorVariants,
+        getFiles: (state) => state.files,
       },
       actions:{
         commitJsonData({commit},payload){

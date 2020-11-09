@@ -2,28 +2,20 @@ export default {
   state: {
     comParams:[
       {
+        name: 'transformerType',
+        title: 'Тип трансформатора',
+        value: 'ТМГ',
+        select: ['ТО','ТР','ОР','ТМГ','ТМ','ОМ'],
+        type: 'select',
+        suffix: null
+      },
+      {
         name: 'power',
         title: 'Мощность',
         value: 630,
         select: null,
         type: 'input',
-        suffix: 'кВа'
-      },
-      {
-        name: 'ulineHV',
-        title: 'UлВН',
-        value: 10000,
-        select: null,
-        type: 'input',
-        suffix: 'В'
-      },
-      {
-        name: 'ulineLV',
-        title: 'UлНН',
-        value: 400,
-        select: null,
-        type: 'input',
-        suffix: 'В'
+        suffix: 'кВа',       
       },
       {
         name: 'frecuency',
@@ -42,28 +34,20 @@ export default {
         suffix: 'Тл'
       },
       {
-        name: 'scheemLV',
-        title: 'Схема соединения НН',
-        value: 'Звезда',
-        select: ['Треугольник','Звезда','Зигзаг'],
-        type: 'select',
-        suffix: null
+        name: 'ulineLV',
+        title: 'UлНН',
+        value: 400,
+        select: null,
+        type: 'input',
+        suffix: 'В'
       },
       {
-        name: 'scheemHV',
-        title: 'Схема соединения ВН',
-        value: 'Звезда',
-        select: ['Треугольник','Звезда','Зигзаг'],
-        type: 'select',
-        suffix: null
-      },
-      {
-        name: 'transformerType',
-        title: 'Тип трансформатора',
-        value: 'ТМГ',
-        select: ['ТО','ТР','ОР','ТМГ','ТМ','ОМ'],
-        type: 'select',
-        suffix: null
+        name: 'ulineHV',
+        title: 'UлВН',
+        value: 10000,
+        select: null,
+        type: 'input',
+        suffix: 'В',
       },
       {
         name: 'regVoltageregion',
@@ -80,10 +64,49 @@ export default {
         select: ['1','2.5','5','10'],
         type: 'select',
         suffix: '%'
-      }
+      },     
+      {
+        name: 'scheemLV',
+        title: 'Схема соединения НН',
+        value: 'Звезда',
+        select: ['Треугольник','Звезда','Зигзаг'],
+        type: 'select',
+        suffix: null
+      },
+      {
+        name: 'scheemHV',
+        title: 'Схема соединения ВН',
+        value: 'Звезда',
+        select: ['Треугольник','Звезда','Зигзаг'],
+        type: 'select',
+        suffix: null
+      },     
     ],
     addParams: [
-     
+      {
+        name: 'rimD',
+        title: 'Диаметр оправки',
+        value: null,
+        select: null,
+        type: 'input',
+        suffix: 'мм'
+      },
+      {
+        name: 'rimH',
+        title: 'Всота оправки',
+        value: null,
+        select: null,
+        type: 'input',
+        suffix: 'мм'
+      },
+      {
+        name: 'rimL',
+        title: 'Длина прям. уч. оправки',
+        value: null,
+        select: null,
+        type: 'input',
+        suffix: 'мм'
+      },
       {
         name: 'currentDensityMinLV',
         title: 'Плотность тока НН мин.',
@@ -149,22 +172,6 @@ export default {
         suffix: ''
       },
       {
-        name: 'maxLayersNumLV',
-        title: 'Макс. кол-во слоев НН',
-        value: '10',
-        select: null,
-        type: 'input',
-        suffix: ''
-      },
-      {
-        name: 'maxLayersNumHV',
-        title: 'Макс. кол-во слоев ВН',
-        value: '10',
-        select: null,
-        type: 'input',
-        suffix: ''
-      },
-      {
         name: 'rodRimClearance',
         title: 'Зазор м/у стержнем и оправой',
         value: '5',
@@ -180,6 +187,22 @@ export default {
         type: 'input',
         suffix: 'мм'
       },
+      {
+        name: 'maxLayersNumLV',
+        title: 'Макс. кол-во слоев НН',
+        value: '10',
+        select: null,
+        type: 'input',
+        suffix: ''
+      },
+      {
+        name: 'maxLayersNumHV',
+        title: 'Макс. кол-во слоев ВН',
+        value: '10',
+        select: null,
+        type: 'input',
+        suffix: ''
+      },     
       {
         name: 'rimCoilHeightDif',
         title: 'Мин. размер косой НН',
@@ -243,31 +266,7 @@ export default {
         select: null,
         type: 'input',
         suffix: 'мм'
-      },
-      {
-        name: 'rimD',
-        title: 'Диаметр оправки',
-        value: null,
-        select: null,
-        type: 'input',
-        suffix: 'мм'
-      },
-      {
-        name: 'rimH',
-        title: 'Всота оправки',
-        value: null,
-        select: null,
-        type: 'input',
-        suffix: 'мм'
-      },
-      {
-        name: 'rimL',
-        title: 'Длина прям. уч. оправки',
-        value: null,
-        select: null,
-        type: 'input',
-        suffix: 'мм'
-      },
+      },     
       {
         name: 'numSemiChannals',
         title: 'Число полуканалов',

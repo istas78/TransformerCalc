@@ -8,15 +8,7 @@ export default {
         select: null,
         type: 'input',
         suffix: 'мм'
-      },
-      {
-        name: 'windowHeigth',
-        title: 'Высота Окна',
-        value: 640,
-        select: null,
-        type: 'input',
-        suffix: 'мм'
-      },
+      },     
       {
         name: 'yokeWidth',
         title: 'Ширина ярма',
@@ -42,12 +34,20 @@ export default {
         suffix: 'мм'
       },
       {
-        name: 'limbWidth',
-        title: 'Ширина стержня',
-        value: 195,
+        name: 'windowHeigth',
+        title: 'Высота Окна',
+        value: 640,
         select: null,
         type: 'input',
         suffix: 'мм'
+      },
+      {
+        name: 'ferrSteelDensity',
+        title: 'плотность стали магнитопровода',
+        value: '7650',
+        select: null,
+        type: 'input',
+        suffix: 'кг/м^3'
       },
       {
         name: 'voltsByTurn',
@@ -64,14 +64,14 @@ export default {
         select: null,
         type: 'input',
         suffix: 'В',
-      },
+      },     
       {
-        name: 'ferrSteelDensity',
-        title: 'плотность стали магнитопровода',
-        value: '7650',
+        name: 'limbWidth',
+        title: 'Ширина стержня',
+        value: 195,
         select: null,
         type: 'input',
-        suffix: 'кг/м^3'
+        suffix: 'мм'
       },
       {
         name: 'stepsNum',

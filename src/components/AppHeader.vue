@@ -4,7 +4,7 @@
       absolute
       temporary
       v-model="drawer"
-      class="hidden-md-and-up"
+      class="hidden-lg-and-up"
     >
       <v-list>
         <v-list-item v-for="(item, i) in menuItems" :key="`navdrawer${i}`"  :to="item.route" @click="item.click">
@@ -17,10 +17,10 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app dark class="primary">
+    <v-app-bar app dark class="primary" id="appheader">
       <v-app-bar-nav-icon
         @click.stop="drawer = !drawer"
-        class="hidden-md-and-up"
+        class="hidden-lg-and-up"
       ></v-app-bar-nav-icon>
       <router-link to="/" tag="span" style="cursor: pointer">
         <v-toolbar-title v-text="'TransformerCalc'"></v-toolbar-title>

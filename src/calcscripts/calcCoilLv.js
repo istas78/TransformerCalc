@@ -38,7 +38,7 @@ export function calcCoilLV(nominalCurrentLV, currentDensityMaxLV, currentDensity
                     let tmp= Object.assign({}, wire);
                     tmp.wireInLayer=wireInLayer;
                     tmp.Layers =tmp.wiresNum/wireInLayer;
-                    let numSemiChannals = Math.floor(tmp.Layers/4);
+                    let numSemiChannals = Math.floor((tmp.Layers-1)/4);
                     tmp.wisThick= wisThick;
                     tmp.coilH=coilH;
                     tmp.numSemiChannals=numSemiChannals;

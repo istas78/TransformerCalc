@@ -2,13 +2,15 @@
   <div>
     <v-file-input
       v-model="files"
-      accept="SheetJSFT"
+      accept=".xls, .xlsx"
       @change="onchange"
+      @click:clear="null_wires"
       label="Загрузука файла выгруженного из 1С"
       placeholder="Выберите файл *.xls"
       prepend-icon="mdi-paperclip"
       outlined
       dense
+      truncate-length="30"
       :show-size="1000"
     ></v-file-input>
     <!-- <br/>
@@ -20,6 +22,7 @@
         :items="this.getWires"
         :search="search"
          class="elevation-1"
+        :items-per-page="5"
       ></v-data-table>
       <!-- <div class="text-xs-center pt-2">
         <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
@@ -39,7 +42,6 @@ export default {
   data() {
     return {
       datajson: [],
-      files: [],
       search: "",
       pagination: {},
       selected: [],
@@ -63,6 +65,15 @@ export default {
     };
   },
   computed: {
+    files: {
+      get(){
+        return this.getFiles;
+      },
+      set(value){
+        this.SET_FILES(value);
+      }
+      
+    },
     pages() {
       if (
         this.pagination.rowsPerPage == null ||
@@ -75,37 +86,12 @@ export default {
       );
     },
     SheetJSFT() {
-      return [
-        "xlsx",
-        "xlsb",
-        "xlsm",
-        "xls",
-        "xml",
-        "csv",
-        "txt",
-        "ods",
-        "fods",
-        "uos",
-        "sylk",
-        "dif",
-        "dbf",
-        "prn",
-        "qpw",
-        "123",
-        "wb*",
-        "wq*",
-        "html",
-        "htm",
-      ]
-        .map(function (x) {
-          return "." + x;
-        })
-        .join(",");
+      return '.xlsx, .xls'
     },
-    ...mapGetters(["getJsondata", "getWires"]),
+    ...mapGetters(["getJsondata", "getWires", "getFiles"]),
   },
   methods: {
-    ...mapMutations(["SET_JSONDATA", "PUSH_WIRES", "NULL_WIRES"]),
+    ...mapMutations(["SET_JSONDATA", "PUSH_WIRES", "NULL_WIRES", "SET_FILES"]),
     jsonparse: function() {
       this.NULL_WIRES();
       var json = this.getJsondata;
@@ -274,7 +260,9 @@ export default {
       }
     },
     onchange: function () {
-      if ( this.files ) this._file(this.files);
+      if ( this.files ) {
+        this._file(this.files);
+      }
     },
     _file(file) {
       /* Boilerplate to set up FileReader */
@@ -297,6 +285,9 @@ export default {
       };
       reader.readAsBinaryString(file);
     },
+    null_wires(){
+      this.NULL_WIRES();
+    }
   },
 };
 </script>

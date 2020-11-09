@@ -4,6 +4,7 @@ export function variantFilter(variantsHV, windowWidth, limbWidth, power, scheemH
 
     let goodVariants = [];
     let lowStoreQuantityVariants = [];
+    //console.log(Number(currentDensityAllMax),Number(currentDensityAllMin));
     for (let variant of variantsHV) {
         if (Number(variant.radDimofCoilHV * 2) <= Number(Number(windowWidth) + Number(limbWidth) - coilCoilClearance)
          && 

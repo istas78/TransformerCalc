@@ -40,7 +40,7 @@ export function calcCoilHV(nominalCurrentHV, currentDensityMaxHV, currentDensity
             tmp.Layers = Layers;
             tmp.wisThick = wisThick;
             tmp.coilH = coilH;
-            let numSemiChannals = Math.floor(tmp.Layers/4);
+            let numSemiChannals = Math.floor((tmp.Layers-1)/4);
             tmp.numSemiChannals=numSemiChannals;
             let firstLayerRad = variantLV.radDimofCoilLV + 2 * cardboardThick + Number(channalThick) + 2 * cardboardThick + tmp.wprofileHeigth + 2 * tmp.wisThick;
             let lastLayerRad = firstLayerRad + 2*paperThick + (tmp.Layers - 1) * (2 * paperThick + tmp.wprofileHeigth + 2 * tmp.wisThick) + numSemiChannals * channalThick / 2;

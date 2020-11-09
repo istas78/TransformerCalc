@@ -13,75 +13,80 @@
           <v-spacer></v-spacer>
           <v-dialog v-model="dialogShow" max-width="1000px">
             <v-card>
-              <v-container id="printMe">
-                <v-row>
-                  <v-col>
-                    {{ showedItem.trName }}
+              <v-container id="printMe" fluid>
+                <v-row justify="space-between" no-gutters>
+                  <v-col align="center">
+                    <h4>{{ showedItem.trName }}</h4>
                   </v-col>
-                  <v-col>
+                  <v-col cols="4" align="right">
                     {{ date }}
                   </v-col>
+                 
                 </v-row>
-                <v-row>
-                  <v-col>
-                    <v-text-field solo dense flat v-model="showedItem.ferrName">
-                    </v-text-field>
-                    <v-text-field
-                      dense
-                      readonly
-                      solo
-                      flat
-                      v-model="showedItem.mcSquare"
-                    >
-                    </v-text-field>
-                    <v-container>
+                <v-row justify="space-around" no-gutters>
+                  
+                  <hr width="100%" color="black" height="2"/>
+                  
+                </v-row >
+                <v-row no-gutters justify-sm="space-between" class="px-8">
+                  <v-col cols="12" sm="5" >
+                    <h4> {{showedItem.ferrName}} </h4>
+                    
+                   <h4>{{showedItem.mcSquare}} </h4>
+                    
+                  
+                   
                       <svg
                         width="280"
                         height="200"
-                        viewBox="0 0 140 100"
+                        viewBox="-2 -2 142 104" 
+                        vector-effect="non-scaling-stroke"
+                        preserveAspectRatio="xMinYMin meet"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <polyline
                           points="0,0 0,100 120,100 120,0 100,0 100,80 70,80 70,0 50,0 50,80 20,80 20,0 0,0"
-                          fill="none"
+                          fill=none
                           stroke="black"
-                        />
-                        <line x1="20" y1="20" x2="50" y2="20" stroke="black" />
-                        <line x1="20" y1="20" x2="23" y2="23" stroke="black" />
-                        <line x1="20" y1="20" x2="23" y2="17" stroke="black" />
-                        <line x1="50" y1="20" x2="47" y2="17" stroke="black" />
-                        <line x1="50" y1="20" x2="47" y2="23" stroke="black" />
+                          stroke-width="1px"
+                          vector-effect="non-scaling-stroke">
+                        </polyline>
+                        <line x1="20" y1="20" x2="50" y2="20" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="20" y1="20" x2="23" y2="23" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="20" y1="20" x2="23" y2="17" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="50" y1="20" x2="47" y2="17" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="50" y1="20" x2="47" y2="23" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
 
-                        <line x1="50" y1="60" x2="70" y2="60" stroke="black" />
-                        <line x1="50" y1="60" x2="53" y2="63" stroke="black" />
-                        <line x1="50" y1="60" x2="53" y2="57" stroke="black" />
-                        <line x1="70" y1="60" x2="67" y2="57" stroke="black" />
-                        <line x1="70" y1="60" x2="67" y2="63" stroke="black" />
+                        <line x1="50" y1="60" x2="70" y2="60" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="50" y1="60" x2="53" y2="63" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="50" y1="60" x2="53" y2="57" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="70" y1="60" x2="67" y2="57" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="70" y1="60" x2="67" y2="63" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
 
-                        <line x1="120" y1="0" x2="150" y2="0" stroke="black" />
-                        <line x1="70" y1="20" x2="150" y2="20" stroke="black" />
-                        <line x1="74" y1="20" x2="74" y2="80" stroke="black" />
-                        <line x1="74" y1="20" x2="71" y2="23" stroke="black" />
-                        <line x1="74" y1="20" x2="77" y2="23" stroke="black" />
-                        <line x1="74" y1="80" x2="71" y2="77" stroke="black" />
-                        <line x1="74" y1="80" x2="77" y2="77" stroke="black" />
+                        <line x1="120" y1="0" x2="150" y2="0" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="70" y1="20" x2="150" y2="20" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="74" y1="20" x2="74" y2="80" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="74" y1="20" x2="71" y2="23" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="74" y1="20" x2="77" y2="23" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="74" y1="80" x2="71" y2="77" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="74" y1="80" x2="77" y2="77" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
 
-                        <line x1="124" y1="0" x2="124" y2="20" stroke="black" />
-                        <line x1="124" y1="0" x2="121" y2="3" stroke="black" />
-                        <line x1="124" y1="0" x2="127" y2="3" stroke="black" />
+                        <line x1="124" y1="0" x2="124" y2="20" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="124" y1="0" x2="121" y2="3" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
+                        <line x1="124" y1="0" x2="127" y2="3" stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke" />
                         <line
                           x1="124"
                           y1="20"
                           x2="121"
                           y2="17"
-                          stroke="black"
+                          stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke"
                         />
                         <line
                           x1="124"
                           y1="20"
                           x2="127"
                           y2="17"
-                          stroke="black"
+                          stroke="black" stroke-width="1px" vector-effect="non-scaling-stroke"
                         />
 
                         <text x="25" y="15" class="small">
@@ -97,58 +102,31 @@
                           {{ showedItem.yokeHeigth }}
                         </text>
                       </svg>
-                    </v-container>
+                 
                   </v-col>
-                  <v-col>
-                    <v-text-field
-                      dense
-                      readonly
-                      solo
-                      flat
-                      v-model="showedItem.rimType"
-                    >
-                    </v-text-field>
-                    <v-text-field
-                      dense
-                      readonly
-                      solo
-                      flat
-                      v-model="showedItem.rimH"
-                    >
-                    </v-text-field>
-                    <v-text-field
-                      dense
-                      readonly
-                      solo
-                      flat
-                      v-model="showedItem.rimD"
-                    >
-                    </v-text-field>
-                    <v-text-field
-                      dense
-                      readonly
-                      solo
-                      flat
-                      v-model="showedItem.rimL"
-                    >
-                    </v-text-field>
+                  <v-col sm="2"></v-col>
+                  <v-col sm="5" cols="12" > 
+                    <h4>{{showedItem.rimType}}</h4>
+                    <h4>{{showedItem.rimH}}</h4>
+                    <h4>{{showedItem.rimD}}</h4>
+                    <h4>{{showedItem.rimL}}</h4>
                   </v-col>
                 </v-row>
-                <v-row>
-                  <v-col>
-                    <v-row>
-                       <v-col>
-                        <p class="text-left">
-                          {{ showedItem.turnNumLV }}
-                        </p>
+                <v-row no-gutters justify-sm="space-between" class="px-8 mb-4">
+                  <v-col cols="12" sm="5">
+                    <v-row no-gutters justify-sm="space-between"> 
+                      <v-col align="left" cols="6" sm="9"> 
+                        
+                         <h4> {{ showedItem.turnNumLV }}</h4>
+                       
                       </v-col>
-                      <v-col cols="3">
-                        <p class="text-right">
-                          {{ showedItem.currentDensity }}
-                        </p>
+                      <v-col align="right" cols="6" sm="3">
+                        
+                         <h4> {{ showedItem.currentDensity }}</h4>
+                        
                       </v-col>
                     </v-row>
-                    <v-container>
+                    <v-row no-gutters>
                       <table width="600" class="table">
                         <tr>
                           <td>Lw2</td>
@@ -170,8 +148,9 @@
                           <td colspan="2">{{ showedItem.skewThickLV }}</td>
                         </tr>
                       </table>
-                    </v-container>
-                    <v-container>
+                    </v-row>
+                    <br/>
+                    <v-row no-gutters>
                       <table width="600" class="table">
                         <tr>
                           <td>Lср=</td>
@@ -201,32 +180,32 @@
                           <td class="active">{{ showedItem.lossSC3fLV }}</td>
                         </tr>
                       </table>
-                    </v-container>
+                    </v-row>
                   </v-col>
-                  <v-col>
-                    <v-container>
-                      <p style="white-space: pre-line">
-                        {{ showedItem.noteLV }}
-                      </p>
-                    </v-container>
+                  <v-col sm="2"/>
+                  <v-col cols="12" sm="5">
+                   
+                        <h4 align="justify"> {{ showedItem.noteLV }}</h4>
+                    
                   </v-col>
                 </v-row>
+                
                 <!-- ВН часть -->
-                <v-row>
-                  <v-col>
-                    <v-row>
-                      <v-col>
-                        <p class="text-left">
-                          {{ showedItem.turnNumHV }}
-                        </p>
+                <v-row no-gutters justify-sm="space-between" class="px-8">
+                  <v-col cols="12" sm="5">
+                    <v-row no-gutters justify="space-between" >
+                      <v-col align="left" cols="6" sm="9">
+                        
+                        <h4>  {{ showedItem.turnNumHV }} </h4>
+                        
                       </v-col>
-                      <v-col cols="3">
-                        <p class="text-right">
-                          {{ showedItem.currentDensityHV }}
-                        </p>
+                      <v-col align="right" cols="6" sm="3">
+                        
+                        <h4>  {{ showedItem.currentDensityHV }} </h4>
+                       
                       </v-col>
                     </v-row>
-                    <v-container>
+                    <v-row no-gutters>
                       <table width="600" class="table">
                         <tr>
                           <td>Lw1</td>
@@ -248,8 +227,9 @@
                           <td colspan="2">{{ showedItem.skewThickHV }}</td>
                         </tr>
                       </table>
-                    </v-container>
-                    <v-container>
+                    </v-row>
+                    <br/>
+                    <v-row no-gutters>
                       <table width="600" class="table">
                         <tr>
                           <td>Lср=</td>
@@ -279,19 +259,26 @@
                           <td class="active">{{ showedItem.lossSC3fLVHV }}</td>
                         </tr>
                       </table>
-                    </v-container>
+                    </v-row>
                   </v-col>
-                  <v-col>
-                    <v-container>
-                      <p style="white-space: pre-line">
-                        {{ showedItem.noteHV }}
-                      </p>
-                    </v-container>
+                   <v-col sm="2"/>
+                  <v-col cols="12" sm="5">
+                    
+                     
+                   <h4 align="justify">     {{ showedItem.noteHV }}</h4>
+                     
+                    
                   </v-col>
                 </v-row>
-                <v-row>
-                  <v-container>
-                    <table width="600" class="table">
+               <v-row justify="space-around" no-gutters >
+                 
+                    <hr width="100%" color="black" height="2" />
+                 
+                </v-row >
+                <v-row no-gutters justify="center" align="center"> 
+                  <v-col sm="4"/>
+                  <v-col sm="4" cols="10" align="center">
+                    <table width="600" class="table" align="center">
                       <tr>
                         <td>ΣPкз=</td>
                         <td>{{ showedItem.lossSC3fAll }}</td>
@@ -306,7 +293,8 @@
                         <td>{{ showedItem.capacity }}</td>
                       </tr>
                     </table>
-                  </v-container>
+                  </v-col>
+                  <v-col sm="4"/>
                 </v-row>
               </v-container>
               <v-card-actions>
@@ -327,7 +315,7 @@
         <v-icon small @click="showItem(item, 'good')"> mdi-eye-outline </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary"> Reset </v-btn>
+        <v-card color="#fb8c00"> Нет вариантов </v-card>
       </template>
     </v-data-table>
     <v-data-table
@@ -349,7 +337,7 @@
         </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary"> Reset </v-btn>
+        <v-card color="#fb8c00"> Нет вариантов </v-card>
       </template>
     </v-data-table>
   </v-container>
@@ -359,6 +347,7 @@
 import { mapGetters, mapMutations } from "vuex";
 import * as variantFilter from "../calcscripts/variantFilter";
 import print from "vue-print-nb";
+import numeralize from "numeralize-ru";
 
 export default {
   data: () => ({
@@ -583,35 +572,21 @@ export default {
         getVariants[index].variantLV.lossSC3fLV
       ).toFixed(1);
       let discontinuity;
-      let semiChannalspos;
-      let semiChannalsposText;
-      if (getVariants[index].variantLV.numSemiChannals == 1) {
-        semiChannalsposText =
-          "После " +
-          Math.floor(getVariants[index].variantLV.Layers / 2) +
-          " слоя полуканал " +
-          this.get_addParamsValues("channalThick")[0].value +
-          " мм.\n";
-      } else if (getVariants[index].variantLV.numSemiChannals > 1) {
-        semiChannalspos = 3;
-        for (let i = 1; i < getVariants[index].variantLV.numSemiChannals; ) {
-          i++;
-          //console.log(semiChannalspos,i);
-          semiChannalspos = String(semiChannalspos) + ", " + 3 * i;
-          //console.log(semiChannalspos,i);
-        }
-        semiChannalsposText =
-          "После " +
-          semiChannalspos +
-          " слоя полуканал " +
-          this.get_addParamsValues("channalThick")[0].value +
-          " мм.\n";
-      } else {
-        semiChannalsposText = "";
-      }
+      let semiChannalsposText = this.getSemiChannalsPos(
+        getVariants[index].variantLV.numSemiChannals,
+        getVariants[index].variantLV.Layers
+      );
+
       let nameStr = getVariants[index].variantLV.wname.split(" ");
+      let wireProfile= (getVariants[index].variantLV.wprofile =='квадрат') ? "▭":"◯";
+      let wireProfileLV='';
+      for (let i=0; i<getVariants[index].variantLV.wireInLayer; i++){
+        wireProfileLV= wireProfileLV + wireProfile;
+      }
+      wireProfileLV= ' '+ wireProfileLV+' ';
+      
       if (getVariants[index].variantLV.cardboardAdding !== undefined) {
-        discontinuity = "без разрыва";
+        discontinuity = "без разрыва провода";
         this.showedItem.noteLV =
           "На оправку " +
           this.get_calcCoilParamsValue("cbLayersOnRim")[0].value +
@@ -623,19 +598,26 @@ export default {
           getVariants[index].variantLV.wprofileHeigth +
           "x" +
           getVariants[index].variantLV.wprofileWidth +
+          wireProfileLV +
           " - в " +
           getVariants[index].variantLV.wireInLayer +
-          " провода, " +
+          numeralize.pluralize( getVariants[index].variantLV.wireInLayer, " провод, "," провода, "," проводов, ") +
           (getVariants[index].variantLV.Layers - 1) +
-          " слоев по " +
+          numeralize.pluralize(getVariants[index].variantLV.Layers - 1, 
+            " слой",
+            " слоя",
+            " слоев"
+          ) +
+          " по " +
           getVariants[index].variantLV.turnNuminLayerLV +
-          " витков " +
+          numeralize.pluralize(getVariants[index].variantLV.turnNuminLayerLV, " витку "," витка "," витков ") +
           discontinuity +
           ", " +
           getVariants[index].variantLV.Layers +
           "  слой " +
           getVariants[index].variantLV.turnNuminLastLayerLV +
-          " витков.\nИзоляция 2 слоя бумаги " +
+          numeralize.pluralize(getVariants[index].variantLV.turnNuminLayerLV, " виток."," витка."," витков.")+
+          "\nИзоляция 2 слоя бумаги " +
           this.get_addParamsValues("paperThick")[0].value +
           " мм.\n" +
           semiChannalsposText +
@@ -646,7 +628,7 @@ export default {
           "мм.";
         ////
       } else {
-        discontinuity = "с разрывом";
+        discontinuity = "с разрывом провода";
         this.showedItem.noteLV =
           "На оправку " +
           this.get_calcCoilParamsValue("cbLayersOnRim")[0].value +
@@ -654,17 +636,19 @@ export default {
           this.get_addParamsValues("cardboardThick")[0].value +
           "мм.\nВ " +
           getVariants[index].variantLV.wireInLayer +
-          " провода " +
+          numeralize.pluralize( getVariants[index].variantLV.wireInLayer, " провод, "," провода, "," проводов, ") +
           nameStr[1] +
           " " +
           getVariants[index].variantLV.wprofileHeigth +
           "x" +
           getVariants[index].variantLV.wprofileWidth +
+          wireProfileLV +
           " - " +
           getVariants[index].variantLV.Layers +
-          " раз по " +
+          numeralize.pluralize(Number(getVariants[index].variantLV.Layers)," раз", " раза"," раз") +
+          " по " +
           this.get_calcTrParamsValue("turnNumLV")[0].value +
-          " витка " +
+          numeralize.pluralize(this.get_calcTrParamsValue("turnNumLV")[0].value, " витку "," витка "," витков ") +
           discontinuity +
           ".\nИзоляция 2 слоя бумаги " +
           this.get_addParamsValues("paperThick")[0].value +
@@ -725,16 +709,12 @@ export default {
       this.showedItem.lossSC3fLVHV = Number(
         getVariants[index].lossSC3fHV
       ).toFixed(1);
+      let wireProfileHV= (getVariants[index].wprofile =='квадрат') ? " ▭ ":" ◯ ";
       let discontinuityHV = "без разрыва";
-      let semiChannalsposHV;
-      if (getVariants[index].numSemiChannals == 1) {
-        semiChannalsposHV = Math.floor(getVariants[index].Layers / 2);
-      } else {
-        semiChannalsposHV = 3;
-        for (let i = 1; i < getVariants[index].numSemiChannals; ++i) {
-          semiChannalsposHV = String(semiChannalsposHV) + ", " + 3 * (i + 1);
-        }
-      }
+      let semiChannalsposHVtext = this.getSemiChannalsPos(
+        getVariants[index].numSemiChannals,
+        getVariants[index].Layers
+      );
       let nameStrHV = getVariants[index].wname.split(" ");
       this.showedItem.noteHV =
         "После W2 -  2 слоя картона " +
@@ -747,23 +727,29 @@ export default {
         getVariants[index].wprofileHeigth +
         "x" +
         getVariants[index].wprofileWidth +
+        wireProfileHV +
         " - " +
         String(getVariants[index].Layers - 1) +
-        " слоев по " +
+        numeralize.pluralize(
+          getVariants[index].Layers - 1,
+          " слой",
+          " слоя",
+          " слоев"
+        ) +
+        " по " +
         getVariants[index].turnNuminLayerHV +
-        " витков " +
+        numeralize.pluralize(getVariants[index].turnNuminLayerHV, " витку "," витка "," витков ") +
         discontinuityHV +
         ", " +
         getVariants[index].Layers +
         "  слой " +
         getVariants[index].turnNuminLastLayerHV +
-        " витков.\nИзоляция 2 слоя бумаги " +
+        numeralize.pluralize(getVariants[index].turnNuminLastLayerHV, " виток"," витка"," витков") +
+        ".\nИзоляция 2 слоя бумаги " +
         this.get_addParamsValues("paperThick")[0].value +
-        " мм.\nПосле " +
-        semiChannalsposHV +
-        " слоя полуканал " +
-        this.get_addParamsValues("channalThick")[0].value +
-        " мм.\nКартон на последний слой " +
+        " мм.\n" +
+        semiChannalsposHVtext +
+        "Картон на последний слой " +
         Math.round(getVariants[index].cardboardAdding) +
         "мм на " +
         Math.round(getVariants[index].lastCoilLength) +
@@ -809,12 +795,80 @@ export default {
       this.showedItem.skewThickHV = skewThickHV15 + skewThickHV05;
       //console.log(this.showedItem.noteHV);
     },
+    getSemiChannalsPos: function (numSemiChannals, layers) {
+      let text = "";
+      switch (numSemiChannals) {
+        case 1:
+          switch (layers) {
+            case 5:
+              text = "2";
+              break;
+            case 6:
+              text = "3";
+              break;
+            case 7:
+              text = "4";
+              break;
+            case 8:
+              text = "4";
+              break;
+          }
+          break;
+        case 2:
+          switch (layers) {
+            case 9:
+              text = "3, 6";
+              break;
+            case 10:
+              text = "4, 7";
+              break;
+            case 11:
+              text = "4, 8";
+              break;
+            case 12:
+              text = "4, 8";
+              break;
+          }
+          break;
+        case 3:
+          switch (layers) {
+            case 13:
+              text = "4, 7, 10";
+              break;
+            case 14:
+              text = "4, 8, 11";
+              break;
+            case 15:
+              text = "4, 8, 12";
+              break;
+            case 16:
+              text = "4, 8, 12";
+              break;
+          }
+      }
+      if (text) {
+        return (
+          "После " +
+          text +
+          " слоя полуканал " +
+          this.get_addParamsValues("channalThick")[0].value +
+          " мм.\n"
+        );
+      } else {
+        return text;
+      }
+    },    
   },
 };
 </script>
 
 
 <style>
+
+hr {
+  margin: 8px;
+  
+}
 .small {
   font: 8px sans-serif;
 }
@@ -823,6 +877,7 @@ export default {
   border-spacing: 0;
   width: 100%;
   font: 12px sans-serif;
+  font-weight: bold;
 }
 .table th,
 .table td {

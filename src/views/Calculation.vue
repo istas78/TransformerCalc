@@ -1,56 +1,69 @@
 <template>
-  <v-container fluid grid-list-sm>
-    <v-layout row align-left>
-      <v-flex md2>
-        <v-layout column>
-          <v-btn @click="calcResult"> Расчет</v-btn>
-          <v-flex
-            class="pa-1"
-            v-for="param in get_calcmagcoreParams"
+  <v-container>
+    <v-row align-center justify="center">
+      <v-col cols="12" lg="3" xs="12" >
+        <v-alert v-model="alert" dismissible type="warning" class="mx-auto"
+          >Не загружен провод для подбора</v-alert
+        >
+        <v-card class="mx-auto">
+        <v-btn v-if="!alert" @click="calcResult" color="blue" block > Расчет</v-btn>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+  <v-col 
+   v-for="param in get_calcmagcoreParams"
             :key="param.name"
-          >
-            <v-text-field
-              v-model="param.value"
-              outlined
-              dense
-              :label="param.title"
-              :suffix="param.unit"
-            ></v-text-field>
-          </v-flex>
-
-          <v-flex
-            class="pa-1"
-            v-for="param in get_calcTransParams"
+            cols="12"
+            lg="6"
+            xs="12">
+        <v-text-field
+            class="ma-2"
+            background-color="#E3F2FD"
+            v-model="param.value"
+            outlined
+            dense
+            :label="param.title"
+            :suffix="param.unit"
+         ></v-text-field>     
+  </v-col>  
+  <v-col
+    v-for="param in get_calcTransParams"
             :key="param.name"
-          >
-            <v-text-field
-              v-model="param.value"
-              outlined
-              dense
-              :label="param.title"
-              :suffix="param.unit"
-            ></v-text-field>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex md2>
-        <v-layout column>
-          <v-flex
-            class="pa-1"
-            v-for="param in get_calcRimParams"
+            cols="12"
+            lg="6"
+            xs="12">
+          <v-text-field
+           class="ma-2"
+          background-color="#E3F2FD"
+            v-model="param.value"
+            outlined
+            dense
+            :label="param.title"
+            :suffix="param.unit"
+          ></v-text-field>      
+  </v-col>
+    </v-row>
+    <v-row align-center justify="center" no-gutters>
+      <v-col
+       v-for="param in get_calcRimParams"
             :key="param.name"
-          >
-            <v-text-field
-              v-model="param.value"
-              outlined
-              dense
-              :label="param.title"
-              :suffix="param.unit"
-            ></v-text-field>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+        cols="12"
+        lg="4"
+        md="4"
+        sm="4"
+        xs="12">       
+          <v-text-field
+          background-color="#E3F2FD"
+           class="ma-2"
+            v-model="param.value"
+            outlined
+            dense
+            :label="param.title"
+            :suffix="param.unit"
+          ></v-text-field>       
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -64,6 +77,11 @@ import * as calcCoilHV from "../calcscripts/calcCoilHv";
 import * as variantFilter from "../calcscripts/variantFilter";
 
 export default {
+  data() {
+    return {
+      alert: false,
+    };
+  },
   computed: {
     ...mapGetters([
       "get_comParams",
@@ -102,7 +120,7 @@ export default {
       "SET_VARIANTSHV",
       "SET_WIRES",
       "NULL_WIRES",
-      "SET_GLSVARIANTS"
+      "SET_GLSVARIANTS",
     ]),
     calcResult() {
       this.wireSort();
@@ -129,7 +147,7 @@ export default {
           this.get_addParamsValues("wireDensity")[0].value,
           this.get_addParamsValues("wireResistance")[0].value,
           this.get_calcCoilParamsValue("cbLayersOnRim")[0].value,
-          this.get_addParamsValues("channalThick")[0].value,
+          this.get_addParamsValues("channalThick")[0].value
         )
       );
       this.SET_VARIANTSHV(
@@ -153,19 +171,21 @@ export default {
           this.get_addParamsValues("numSemiChannals")[0].value
         )
       );
-      this.SET_GLSVARIANTS(variantFilter.variantFilter(
-        this.getVariantsHV,
-        this.get_magcoreParamsValues("windowWidth")[0].value,
-        this.get_magcoreParamsValues("limbWidth")[0].value,
-        this.get_comParamsValues("power")[0].value,
-        this.get_comParamsValues("scheemHV")[0].value,
-        this.get_comParamsValues("scheemLV")[0].value,
-        this.get_calcTrParamsValue("nominalCurrentLV")[0].value,
-        this.get_calcTrParamsValue("nominalCurrentHV")[0].value,
-        this.get_addParamsValues("coilCoilClearance")[0].value,
-        this.get_addParamsValues("currentDensityAllMin")[0].value,
-        this.get_addParamsValues("currentDensityAllMax")[0].value
-      ));
+      this.SET_GLSVARIANTS(
+        variantFilter.variantFilter(
+          this.getVariantsHV,
+          this.get_magcoreParamsValues("windowWidth")[0].value,
+          this.get_magcoreParamsValues("limbWidth")[0].value,
+          this.get_comParamsValues("power")[0].value,
+          this.get_comParamsValues("scheemHV")[0].value,
+          this.get_comParamsValues("scheemLV")[0].value,
+          this.get_calcTrParamsValue("nominalCurrentLV")[0].value,
+          this.get_calcTrParamsValue("nominalCurrentHV")[0].value,
+          this.get_addParamsValues("coilCoilClearance")[0].value,
+          this.get_addParamsValues("currentDensityAllMin")[0].value,
+          this.get_addParamsValues("currentDensityAllMax")[0].value
+        )
+      );
       //console.log(this.getGoodVariants);
       //console.log(this.getLowStorVariants);
     },
@@ -237,12 +257,23 @@ export default {
       let brunchNum =
         this.get_comParamsValues("regVoltageregion")[0].value /
         this.get_comParamsValues("regVoltageStep")[0].value;
-     // let turnNumHVPBVRegin =
-        (turnNumHV * this.get_comParamsValues("regVoltageregion")[0].value) /
-        100;
-     // let turnNumHVPBVStep = Math.ceil(turnNumHVPBVRegin / brunchNum);
-      for (let i = -1 * Math.floor(brunchNum); i <= Math.floor(brunchNum); i++) {
-        turnNumHVPBV.push(Math.round(turnNumHV + i *Number(this.get_comParamsValues("regVoltageStep")[0].value)/100*turnNumHV));
+      // let turnNumHVPBVRegin =
+      (turnNumHV * this.get_comParamsValues("regVoltageregion")[0].value) / 100;
+      // let turnNumHVPBVStep = Math.ceil(turnNumHVPBVRegin / brunchNum);
+      for (
+        let i = -1 * Math.floor(brunchNum);
+        i <= Math.floor(brunchNum);
+        i++
+      ) {
+        turnNumHVPBV.push(
+          Math.round(
+            turnNumHV +
+              ((i *
+                Number(this.get_comParamsValues("regVoltageStep")[0].value)) /
+                100) *
+                turnNumHV
+          )
+        );
       }
       this.set_calc_trans_par_val({
         name: "turnNumHV",
@@ -269,42 +300,41 @@ export default {
     },
     calcRimPar() {
       let rimH;
-       if(this.get_addParamsValues("rimH")[0].value){
-          rimH=this.get_addParamsValues("rimH")[0].value;
-      }else{
-      if (this.get_comParamsValues("power")[0].value <= 630) {
-        rimH = this.get_magcoreParamsValues("windowHeigth")[0].value - 20;
+      if (this.get_addParamsValues("rimH")[0].value) {
+        rimH = this.get_addParamsValues("rimH")[0].value;
       } else {
-        rimH = this.get_magcoreParamsValues("windowHeigth")[0].value - 30;
-      }
+        if (this.get_comParamsValues("power")[0].value <= 630) {
+          rimH = this.get_magcoreParamsValues("windowHeigth")[0].value - 20;
+        } else {
+          rimH = this.get_magcoreParamsValues("windowHeigth")[0].value - 30;
+        }
       }
       this.set_calc_rim_par_val({
         name: "rimH",
         value: Number(rimH).toFixed(0),
       });
       let rimD;
-      if(this.get_addParamsValues("rimD")[0].value){
-          rimD=this.get_addParamsValues("rimD")[0].value;
-      }else{
-      
-     rimD =
-        2 *
-        (Number(this.get_stepsParams[0][0].value) / 2 +
-          Number(this.get_addParamsValues("rodRimClearance")[0].value));
+      if (this.get_addParamsValues("rimD")[0].value) {
+        rimD = this.get_addParamsValues("rimD")[0].value;
+      } else {
+        rimD =
+          2 *
+          (Number(this.get_stepsParams[0][0].value) / 2 +
+            Number(this.get_addParamsValues("rodRimClearance")[0].value));
       }
       this.set_calc_rim_par_val({
         name: "rimD",
         value: Number(rimD).toFixed(0),
       });
       let rimL;
-      if(this.get_addParamsValues("rimL")[0].value){
-          rimL=this.get_addParamsValues("rimL")[0].value;
-      }else{
-      rimL =
-        this.get_calcmagcoreParamsValue("mcProfileMaxRad")[0].value - rimD;
-      if (rimL < 0) {
-        rimL = 0;
-      }
+      if (this.get_addParamsValues("rimL")[0].value) {
+        rimL = this.get_addParamsValues("rimL")[0].value;
+      } else {
+        rimL =
+          this.get_calcmagcoreParamsValue("mcProfileMaxRad")[0].value - rimD;
+        if (rimL < 0) {
+          rimL = 0;
+        }
       }
       this.set_calc_rim_par_val({
         name: "rimL",
@@ -327,17 +357,18 @@ export default {
       }
       this.set_calc_magcore_par_val({
         name: "mcSquare",
-        value: Number(mcSquare/100).toFixed(0),
+        value: Number(mcSquare / 100).toFixed(0),
       });
       this.set_calc_magcore_par_val({
         name: "mcProfileMaxRad",
         value: Number(mcProfileMaxRad).toFixed(0),
       });
       let mcVolume =
-        ((Number(mcSquare) / 1e6) *
-          (Number(this.get_magcoreParamsValues("windowHeigth")[0].value)/1000 +
-            2 * Number(this.get_magcoreParamsValues("yokeHeigth")[0].value)/1000) *
-          3);
+        (Number(mcSquare) / 1e6) *
+        (Number(this.get_magcoreParamsValues("windowHeigth")[0].value) / 1000 +
+          (2 * Number(this.get_magcoreParamsValues("yokeHeigth")[0].value)) /
+            1000) *
+        3;
       this.set_calc_magcore_par_val({
         name: "mcVolume",
         value: Number(mcVolume).toFixed(3),
@@ -358,52 +389,58 @@ export default {
       });
       this.set_calc_magcore_par_val({
         name: "mcSumMass",
-        value:
-          (Number(Number(yokesVolume) + Number(mcVolume)) *
-          Number(this.get_magcoreParamsValues("ferrSteelDensity")[0].value)).toFixed(0),
+        value: (
+          Number(Number(yokesVolume) + Number(mcVolume)) *
+          Number(this.get_magcoreParamsValues("ferrSteelDensity")[0].value)
+        ).toFixed(0),
       });
     },
     wireSort() {
       let tmp = [];
       let i = 0;
-      for (let wire of this.getWires) {
-       tmp.push(Object.assign({}, wire));
-        i++;
-      }
-      tmp.sort(function (a, b) {
-        return a.wname.localeCompare(b.wname);
-      });
-      var goodWiresDf = [];
-      i = 0;
-      for (; i < tmp.length - 1; i++) {
-        if (tmp[i].wname != tmp[i + 1].wname) {
-          goodWiresDf.push(tmp[i]);
-        } else {
-          tmp[i + 1].wquantity = tmp[i+1].wquantity + tmp[i].wquantity;
+      if (this.getWires[0] != undefined) {
+        // console.log(this.getWires[0], this.getWires);
+        for (let wire of this.getWires) {
+          tmp.push(Object.assign({}, wire));
+          i++;
         }
+        tmp.sort(function (a, b) {
+          return a.wname.localeCompare(b.wname);
+        });
+        var goodWiresDf = [];
+        i = 0;
+        for (; i < tmp.length - 1; i++) {
+          if (tmp[i].wname != tmp[i + 1].wname) {
+            goodWiresDf.push(tmp[i]);
+          } else {
+            tmp[i + 1].wquantity = tmp[i + 1].wquantity + tmp[i].wquantity;
+          }
+        }
+        goodWiresDf.push(tmp[i]);
+        this.NULL_WIRES();
+        this.SET_WIRES(goodWiresDf);
+      } else {
+        this.alert = true;
       }
-      goodWiresDf.push(tmp[i]);
-      this.NULL_WIRES();
-      this.SET_WIRES(goodWiresDf);
     },
     calcColiPar() {
-      if(this.get_comParamsValues("ulineHV")[0].value<= 6000){
+      if (this.get_comParamsValues("ulineHV")[0].value <= 6000) {
         this.set_calc_coil_par_val({
-        name: "cbLayersOnRim",
-        value: 4
+          name: "cbLayersOnRim",
+          value: 4,
         });
-      }else if(this.get_comParamsValues("ulineHV")[0].value<= 10000){
+      } else if (this.get_comParamsValues("ulineHV")[0].value <= 10000) {
         this.set_calc_coil_par_val({
-        name: "cbLayersOnRim",
-        value: 6
+          name: "cbLayersOnRim",
+          value: 6,
         });
-      }else if(this.get_comParamsValues("ulineHV")[0].value<=15000){
+      } else if (this.get_comParamsValues("ulineHV")[0].value <= 15000) {
         this.set_calc_coil_par_val({
-        name: "cbLayersOnRim",
-        value: 8
+          name: "cbLayersOnRim",
+          value: 8,
         });
       }
-    }
+    },
   },
 };
 </script>
